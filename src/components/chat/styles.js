@@ -1,0 +1,71 @@
+export default () => ({
+  chatContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 3,
+    background: '#f2f5f8',
+  },
+  chatHeader: {
+    padding: '15px 30px',
+    borderBottom: '1px solid white',
+    color: '#919191',
+    fontSize: 18,
+  },
+  messageList: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    flex: 3,
+    paddingRight: 25,
+    overflow: 'auto',
+  },
+  messageItem: {
+    display: 'inline-block',
+    width: '80%',
+    padding: '15px 0',
+  },
+  messageInfo: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  messageTime: {
+    paddingRight: 15,
+    color: '#a8aab1',
+  },
+  messageContainer: {
+    position: 'relative',
+    marginTop: 10,
+    padding: '15px 20px',
+    color: 'white',
+    background: '#a5a5a5',
+    borderRadius: 4,
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: -7,
+      right: 0,
+      display: 'block',
+      borderRight: '11px solid #a5a5a5',
+      borderLeft: '11px solid transparent',
+      borderTop: '11px solid transparent',
+    },
+  },
+  chatControl: {
+    flex: 1,
+    padding: 30,
+    borderTop: '1px solid white',
+  },
+  chatInput: {
+    width: '100%',
+    marginBottom: 10,
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: 5,
+    resize: 'none',
+    fontSize: '14px',
+    fontFamily: 'Arial, sans-serif',
+  },
+  submit: {
+    float: 'right',
+  },
+})
