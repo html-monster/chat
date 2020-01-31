@@ -4,8 +4,8 @@ import messagesReducer from '../reducers/messages'
 import usersReducer from '../reducers/users'
 
 const chatReducer = combineReducers({
-	usersReducer,
-	messagesReducer
+  usersReducer,
+  messagesReducer,
 })
 
 export default chatReducer

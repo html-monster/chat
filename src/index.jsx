@@ -16,4 +16,4 @@ render(
     </Provider>
   </React.Fragment>,
   document.getElementById('root')
-);
+)
