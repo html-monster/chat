@@ -24,6 +24,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'warn',
     'require-await': 'error',
     'symbol-description': 'off',
+    'no-console': 'off',
     curly: [2, 'all'],
   },
 }

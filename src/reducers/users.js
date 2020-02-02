@@ -1,4 +1,4 @@
-import { UPDATE_USERS, CONNECTED_NEW_USER } from '../constants'
+import { UPDATE_USERS, AUTHORIZE } from '../constants'
 
 const defaultState = {
   currentUserId: null,
@@ -9,8 +9,8 @@ const usersReducer = (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_USERS:
       return { ...state, users: action.users }
-    case CONNECTED_NEW_USER:
-      return { ...state, currentUserId: action.userId }
+    case AUTHORIZE:
+      return { ...state, ...action.authData }
     default:
       return state
   }

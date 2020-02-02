@@ -25,11 +25,11 @@ class ChatControl extends Component {
   }
 
   sendMessage = () => {
-    const { currentUserId, updateMessages } = this.props
+    const { currentUserId, setMessages } = this.props
     const { text } = this.state
 
     if (text) {
-      updateMessages({
+      setMessages({
         author: currentUserId,
         text: text.trim(),
       })

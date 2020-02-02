@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { withStyles } from '@material-ui/core/styles'
 
 import ChatHeader from './ChatHeader'
@@ -7,15 +8,12 @@ import ChatControl from './ChatControl'
 
 import styles from './styles'
 
-function ChatContainer({ classes, currentUserId, messages, updateMessages }) {
+function ChatContainer({ classes, currentUserId, messages, setMessages }) {
   return (
     <div className={classes.chatContainer}>
       <ChatHeader />
       <MessagesList messages={messages} />
-      <ChatControl
-        currentUserId={currentUserId}
-        updateMessages={updateMessages}
-      />
+      <ChatControl currentUserId={currentUserId} setMessages={setMessages} />
     </div>
   )
 }

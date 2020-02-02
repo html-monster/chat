@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { updateMessages } from '../actions'
+import { getMessage, setMessage } from '../actions'
 
 import UsersList from '../components/sidebar/UsersList'
 import ChatContainer from '../components/chat'
@@ -18,23 +18,12 @@ class Chat extends Component {
 
   updateMessagesListener = (event) => {
     if (event.key === 'newMessage') {
-      const message = this.getMessage()
-
-      message && this.props.updateMessages(message)
-    }
-  }
-
-  getMessage = () => {
-    try {
-      return JSON.parse(window.localStorage.getItem('newMessage'))
-    } catch (e) {
-      console.error('Chat: Error to parse message', e)
-      return null
+      this.props.getMessage()
     }
   }
 
   render() {
-    const { users, currentUserId, messages, updateMessages } = this.props
+    const { users, currentUserId, messages, setMessages } = this.props
 
     return (
       <Fragment>
@@ -42,20 +31,24 @@ class Chat extends Component {
         <ChatContainer
           currentUserId={currentUserId}
           messages={messages}
-          updateMessages={updateMessages}
+          setMessages={setMessages}
         />
       </Fragment>
     )
   }
 }
 
-const mapStateToProps = ({ usersReducer, messagesReducer }) => ({
-  users: usersReducer.users,
-  currentUserId: usersReducer.currentUserId,
+const mapStateToProps = ({
+  usersReducer: { users, currentUserId } = {},
+  messagesReducer,
+}) => ({
+  users,
+  currentUserId,
   messages: messagesReducer,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  updateMessages: bindActionCreators(updateMessages, dispatch),
+  getMessage: bindActionCreators(getMessage, dispatch),
+  setMessages: bindActionCreators(setMessage, dispatch),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Chat)

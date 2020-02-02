@@ -1,1 +1,1 @@
-export { default } from 'src/components/anonymous/Anonymous'
+export { default } from './Anonymous'
